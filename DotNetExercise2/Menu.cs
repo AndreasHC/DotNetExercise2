@@ -16,6 +16,9 @@ internal static class Menu
             case "1":
                 MovieTheater.singleQuery();
                 break;
+            case "2":
+                MovieTheater.groupQuery();
+                break;
             default:
                 Console.Clear();
                 Console.WriteLine($"{input} är inte ett giltigt input.");
@@ -32,5 +35,6 @@ internal static class Menu
         Console.WriteLine("Skriv in siffror för att testa funktioner.");
         Console.WriteLine("0. Avsluta");
         Console.WriteLine("1. Biopris, en kund");
+        Console.WriteLine("2. Biopris, grupp");
     }
 }
