@@ -22,6 +22,9 @@ internal static class Menu
             case "3":
                 Repeater.tenFold();
                 break;
+            case "4":
+                StringSplitter.Third();
+                break;
             default:
                 Console.Clear();
                 Console.WriteLine($"{input} är inte ett giltigt input.");
@@ -40,5 +43,6 @@ internal static class Menu
         Console.WriteLine("1. Biopris, en kund");
         Console.WriteLine("2. Biopris, grupp");
         Console.WriteLine("3. Repetition av text 10 gånger");
+        Console.WriteLine("4. Hitta tredje ordet i en text");
     }
 }
