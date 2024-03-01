@@ -19,6 +19,9 @@ internal static class Menu
             case "2":
                 MovieTheater.groupQuery();
                 break;
+            case "3":
+                Repeater.tenFold();
+                break;
             default:
                 Console.Clear();
                 Console.WriteLine($"{input} är inte ett giltigt input.");
@@ -36,5 +39,6 @@ internal static class Menu
         Console.WriteLine("0. Avsluta");
         Console.WriteLine("1. Biopris, en kund");
         Console.WriteLine("2. Biopris, grupp");
+        Console.WriteLine("3. Repetition av text 10 gånger");
     }
 }
