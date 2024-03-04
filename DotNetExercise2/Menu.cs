@@ -15,7 +15,27 @@ namespace DotNetExercise2
                     done = true;
                     break;
                 case "1":
-                    MovieTheater.SingleQuery();
+                    int age = (int)MovieTheater.ageRequest.Run();
+                    string description;
+                    if ((age < 5) | (age > 100))
+                    {
+                        description = "Gratis";
+                    }
+                    else if (age < 20)
+                    {
+                        description = "Ungdomspris";
+                    }
+                    else if (age > 64)
+                    {
+                        description = "Pensionärspris";
+                    }
+                    else
+                    {
+                        description = "Standardpris";
+                    }
+                    Console.WriteLine($"{description}: {MovieTheater.prices[description]} kr");
+                    Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
+                    Console.ReadLine();
                     break;
                 case "2":
                     MovieTheater.GroupQuery();
