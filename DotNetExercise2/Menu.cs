@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations;
 internal static class Menu
 {
     private static InputRequest request = new InputRequest("Välj: ", "Ett oförutsett fel har inträffat, försök igen.");
-    internal static void runOnce(out bool done)
+    internal static void RunOnce(out bool done)
     {
         done = false;
-        display();
+        Display();
         string input = (string) request.Run();
         switch (input)
         {
@@ -16,13 +16,13 @@ internal static class Menu
                 done = true;
                 break;
             case "1":
-                MovieTheater.singleQuery();
+                MovieTheater.SingleQuery();
                 break;
             case "2":
-                MovieTheater.groupQuery();
+                MovieTheater.GroupQuery();
                 break;
             case "3":
-                Repeater.tenFold();
+                Repeater.TenFold();
                 break;
             case "4":
                 StringSplitter.Third();
@@ -36,7 +36,7 @@ internal static class Menu
         }
     }
 
-    private static void display()
+    private static void Display()
     {
         Console.Clear();
         Console.WriteLine("Du har kommit till huvudmenyn.");

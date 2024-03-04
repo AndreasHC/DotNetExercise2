@@ -8,7 +8,7 @@ internal class MovieTheater
     private static IntegerInputRequest ageRequest = new IntegerInputRequest("Ange kundens ålder: ", "Kundens ålder måste anges i hela år, uttryckta med siffror, och måste vara 0-300.", 0, 300);
     private static IntegerInputRequest numberOfCustomersRequest = new IntegerInputRequest("Ange antal kunder: ", "Antalet kunder måste vara ett heltal, uttryckt med siffror, och måste vara 1-50.", 1, 50);
 
-    internal static void singleQuery()
+    internal static void SingleQuery()
     {
         int age = (int) ageRequest.Run();
         string description = AgeClass(age);
@@ -17,7 +17,7 @@ internal class MovieTheater
         Console.ReadLine();
     }
 
-    internal static void groupQuery()
+    internal static void GroupQuery()
     {
         int groupSize = (int) numberOfCustomersRequest.Run();
         int price = 0;
