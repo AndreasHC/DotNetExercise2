@@ -2,7 +2,7 @@
 namespace DotNetExercise2
 {
 
-    internal class MovieTheater
+    internal static class MovieTheater
     {
         static Dictionary<string, int> prices = new Dictionary<string, int> { { "Gratis", 0 }, { "Ungdomspris", 80 }, { "Pensionärspris", 90 }, { "Standardpris", 120 } };
 

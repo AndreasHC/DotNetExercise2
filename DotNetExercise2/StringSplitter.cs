@@ -2,7 +2,7 @@
 namespace DotNetExercise2
 {
 
-    internal class StringSplitter
+    internal static class StringSplitter
     {
         private static StringListInputRequest request = new StringListInputRequest("Mata in en text med minst tre ord: ", "Det var inte en text med minst tre ord.", 3);
         internal static void Third()

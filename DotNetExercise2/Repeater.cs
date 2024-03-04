@@ -2,7 +2,7 @@
 namespace DotNetExercise2
 {
 
-    internal class Repeater
+    internal static class Repeater
     {
         private static InputRequest textRequest = new InputRequest("Mata in en text: ", "Ett oförutsett fel har inträffat, försök igen.");
 
