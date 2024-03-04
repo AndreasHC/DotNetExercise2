@@ -1,10 +1,13 @@
 ﻿
+using DotNetExercise2;
+
 internal class Repeater
 {
+    private static InputRequest textRequest = new InputRequest("Mata in en text: ", "Ett oförutsett fel har inträffat, försök igen.");
+
     internal static void tenFold()
     {
-        Console.WriteLine("Mata in en text");
-        string input = Console.ReadLine();
+        string input = (string) textRequest.Run();
         // Start count at 1, since number is exposed to human user.
         for (int i = 1; i <= 10;  i++)
         {

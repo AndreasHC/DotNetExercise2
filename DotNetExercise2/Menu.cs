@@ -1,13 +1,15 @@
 ﻿
+using DotNetExercise2;
 using System.ComponentModel.DataAnnotations;
 
 internal static class Menu
 {
+    private static InputRequest request = new InputRequest("Välj: ", "Ett oförutsett fel har inträffat, försök igen.");
     internal static void runOnce(out bool done)
     {
         done = false;
         display();
-        string input = Console.ReadLine();
+        string input = (string) request.Run();
         switch (input)
         {
             case "0":
