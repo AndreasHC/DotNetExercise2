@@ -12,11 +12,17 @@ namespace DotNetExercise2
 
         protected override bool Evaluate(string input, out object parsed)
         {
-            string[] words = input.Split(' ');
+            List<string> words = input.Split(' ').ToList();
+            words.RemoveAll(StringIsEmpty);
             parsed = words;
-            return words.Length >= minLength;
+            return words.Count >= minLength;
         }
 
+
+        private static bool StringIsEmpty(string input)
+        {
+            return input == "";
+        }
 
     }
 }
