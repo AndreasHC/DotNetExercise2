@@ -15,7 +15,10 @@ namespace DotNetExercise2
                 Console.Write(i);
                 Console.Write('.');
                 Console.Write(input);
-                Console.Write(", ");
+                if (i < 10)
+                {
+                    Console.Write(", ");
+                }
             }
             Console.WriteLine();
             Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
