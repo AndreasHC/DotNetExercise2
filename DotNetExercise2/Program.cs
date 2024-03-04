@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Design;
+﻿
+using DotNetExercise2;
 
 bool done  = false;
 while (!done)

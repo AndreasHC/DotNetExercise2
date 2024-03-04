@@ -1,54 +1,56 @@
 ﻿
-using DotNetExercise2;
-
-internal class MovieTheater
+namespace DotNetExercise2
 {
-    static Dictionary<string, int> prices =new Dictionary<string, int> { { "Ungdomspris", 80 }, { "Pensionärspris", 90 }, {"Standardpris", 120 } };
 
-    private static IntegerInputRequest ageRequest = new IntegerInputRequest("Ange kundens ålder: ", "Kundens ålder måste anges i hela år, uttryckta med siffror, och måste vara 0-300.", 0, 300);
-    private static IntegerInputRequest numberOfCustomersRequest = new IntegerInputRequest("Ange antal kunder: ", "Antalet kunder måste vara ett heltal, uttryckt med siffror, och måste vara 1-50.", 1, 50);
-
-    internal static void SingleQuery()
+    internal class MovieTheater
     {
-        int age = (int) ageRequest.Run();
-        string description = AgeClass(age);
-        Console.WriteLine($"{description}: {prices[description]} kr");
-        Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
-        Console.ReadLine();
-    }
+        static Dictionary<string, int> prices = new Dictionary<string, int> { { "Ungdomspris", 80 }, { "Pensionärspris", 90 }, { "Standardpris", 120 } };
 
-    internal static void GroupQuery()
-    {
-        int groupSize = (int) numberOfCustomersRequest.Run();
-        int price = 0;
-        // Start count at 1, since number is exposed to human user.
-        for (int i = 1; i <= groupSize; i++)
-        {
-            int age = (int) ageRequest.Run($"Ange ålder för kund nummer {i}:");
-            price += prices[AgeClass(age)];
-        }
-        Console.WriteLine($"Antal personer: {groupSize}");
-        Console.WriteLine($"Total kostnad: {price}");
-        Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
-        Console.ReadLine();
-    }
+        private static IntegerInputRequest ageRequest = new IntegerInputRequest("Ange kundens ålder: ", "Kundens ålder måste anges i hela år, uttryckta med siffror, och måste vara 0-300.", 0, 300);
+        private static IntegerInputRequest numberOfCustomersRequest = new IntegerInputRequest("Ange antal kunder: ", "Antalet kunder måste vara ett heltal, uttryckt med siffror, och måste vara 1-50.", 1, 50);
 
-    private static string AgeClass(int age)
-    {
-        string description;
-        if (age < 20)
+        internal static void SingleQuery()
         {
-            description = "Ungdomspris";
-        }
-        else if (age > 64)
-        {
-            description = "Pensionärspris";
-        }
-        else
-        {
-            description = "Standardpris";
+            int age = (int)ageRequest.Run();
+            string description = AgeClass(age);
+            Console.WriteLine($"{description}: {prices[description]} kr");
+            Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
+            Console.ReadLine();
         }
 
-        return description;
+        internal static void GroupQuery()
+        {
+            int groupSize = (int)numberOfCustomersRequest.Run();
+            int price = 0;
+            // Start count at 1, since number is exposed to human user.
+            for (int i = 1; i <= groupSize; i++)
+            {
+                int age = (int)ageRequest.Run($"Ange ålder för kund nummer {i}:");
+                price += prices[AgeClass(age)];
+            }
+            Console.WriteLine($"Antal personer: {groupSize}");
+            Console.WriteLine($"Total kostnad: {price}");
+            Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
+            Console.ReadLine();
+        }
+
+        private static string AgeClass(int age)
+        {
+            string description;
+            if (age < 20)
+            {
+                description = "Ungdomspris";
+            }
+            else if (age > 64)
+            {
+                description = "Pensionärspris";
+            }
+            else
+            {
+                description = "Standardpris";
+            }
+
+            return description;
+        }
     }
 }
