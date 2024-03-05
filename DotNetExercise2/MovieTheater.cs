@@ -1,10 +1,20 @@
 ﻿
+using System.Runtime.CompilerServices;
+
 namespace DotNetExercise2
 {
+    internal enum AgeClass
+    {
+        Free,
+        Youth,
+        Retired,
+        Standard
+    }
 
     internal static class MovieTheater
     {
-        static Dictionary<string, int> prices = new Dictionary<string, int> { { "Gratis", 0 }, { "Ungdomspris", 80 }, { "Pensionärspris", 90 }, { "Standardpris", 120 } };
+        static Dictionary<AgeClass, int> prices = new Dictionary<AgeClass, int> { {AgeClass.Free , 0 }, { AgeClass.Youth, 80 }, { AgeClass.Retired, 90 }, { AgeClass.Standard, 120 } };
+        static Dictionary<AgeClass, string> ageClassDescriptions = new Dictionary<AgeClass, string> { { AgeClass.Free, "Gratis" }, { AgeClass.Youth, "Ungdomspris" }, { AgeClass.Retired, "Pensionärspris" }, { AgeClass.Standard, "Standardpris" } };
 
         private static IntegerInputRequest ageRequest = new IntegerInputRequest("Ange kundens ålder: ", "Kundens ålder måste anges i hela år, uttryckta med siffror, och måste vara 0-300.", 0, 300);
         private static IntegerInputRequest numberOfCustomersRequest = new IntegerInputRequest("Ange antal kunder: ", "Antalet kunder måste vara ett heltal, uttryckt med siffror, och måste vara 1-50.", 1, 50);
@@ -12,8 +22,8 @@ namespace DotNetExercise2
         internal static void SingleQuery()
         {
             int age = (int)ageRequest.Run();
-            string description = AgeClass(age);
-            Console.WriteLine($"{description}: {prices[description]} kr");
+            AgeClass ageClass = GetAgeClass(age);
+            Console.WriteLine($"{ageClassDescriptions[ageClass]}: {prices[ageClass]} kr");
             Console.WriteLine("Tryck enter för att komma tillbaka till huvudmenyn.");
             Console.ReadLine();
         }
@@ -26,7 +36,7 @@ namespace DotNetExercise2
             for (int i = 1; i <= groupSize; i++)
             {
                 int age = (int)ageRequest.Run($"Ange ålder för kund nummer {i}:");
-                price += prices[AgeClass(age)];
+                price += prices[GetAgeClass(age)];
             }
             Console.WriteLine($"Antal personer: {groupSize}");
             Console.WriteLine($"Total kostnad: {price}");
@@ -34,27 +44,27 @@ namespace DotNetExercise2
             Console.ReadLine();
         }
 
-        private static string AgeClass(int age)
+        private static AgeClass GetAgeClass(int age)
         {
-            string description;
+            AgeClass ageClass;
             if ((age < 5) | (age > 100))
             {
-                description = "Gratis";
+                ageClass = AgeClass.Free;
             }
             else if(age < 20)
             {
-                description = "Ungdomspris";
+                ageClass = AgeClass.Youth;
             }
             else if (age > 64)
             {
-                description = "Pensionärspris";
+                ageClass = AgeClass.Retired;
             }
             else
             {
-                description = "Standardpris";
+                ageClass = AgeClass.Standard;
             }
 
-            return description;
+            return ageClass;
         }
     }
 }
