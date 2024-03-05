@@ -46,25 +46,22 @@ namespace DotNetExercise2
 
         private static AgeClass GetAgeClass(int age)
         {
-            AgeClass ageClass;
             if ((age < 5) | (age > 100))
             {
-                ageClass = AgeClass.Free;
+                return AgeClass.Free;
             }
             else if(age < 20)
             {
-                ageClass = AgeClass.Youth;
+                return AgeClass.Youth;
             }
             else if (age > 64)
             {
-                ageClass = AgeClass.Retired;
+                return AgeClass.Retired;
             }
             else
             {
-                ageClass = AgeClass.Standard;
+                return AgeClass.Standard;
             }
-
-            return ageClass;
         }
     }
 }
